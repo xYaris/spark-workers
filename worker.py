@@ -10,6 +10,10 @@ def get_api_key() -> str:
     print(os.environ.keys())
     if secret:
         return secret
+    else:
+        import subprocess
+        call_str = "echo $COMPUTE_API_KEY"
+        return subprocess.check_output(call_str, shell=True, stderr=subprocess.STDOUT)
       
 @app.route("/")
 def hello():
@@ -17,7 +21,7 @@ def hello():
 
 @app.route("/test")
 def test():
-    return(str(os.environ))
+    return(get_api_key())
 
 @app.route("/add",methods=['GET','POST'])
 def add():
