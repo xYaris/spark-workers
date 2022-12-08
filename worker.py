@@ -29,10 +29,11 @@ def add():
     return "Use post to add" # replace with form template
   else:
     token=get_api_key()
-    return addWorker(token,3)
+    ret = addWorker(token,3)
+    return ret
 
 
-def addworker(token, num):
+def addWorker(token, num):
     with open('payload.json') as p:
       tdata=json.load(p)
     tdata['name']='slave3'+str(num)
