@@ -16,6 +16,7 @@ def hello():
 
 @app.route("/add",methods=['GET','POST'])
 def add():
+  print(request)
   if request.method=='GET':
     return "Use post to add" # replace with form template
   else:
