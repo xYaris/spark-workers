@@ -3,7 +3,6 @@ from flask import request
 import requests
 import os
 import json
-print(os.environ.keys())
 app = Flask(__name__)
 
 def get_api_key() -> str:
@@ -15,6 +14,10 @@ def get_api_key() -> str:
 @app.route("/")
 def hello():
     return "Add workers to the Spark cluster with a POST request to add"
+
+@app.route("/test")
+def test():
+    return(str(os.environ))
 
 @app.route("/add",methods=['GET','POST'])
 def add():
