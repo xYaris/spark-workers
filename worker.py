@@ -3,6 +3,7 @@ from flask import request
 import requests
 import os
 import json
+print(os.environ.keys())
 app = Flask(__name__)
 
 def get_api_key() -> str:
