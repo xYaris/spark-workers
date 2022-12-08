@@ -24,7 +24,7 @@ def add():
     url='https://www.googleapis.com/compute/v1/projects/spark-371009/zones/europe-west1-b/instances'
     headers={"Authorization": "Bearer "+token}
     resp=requests.post(url,headers=headers, data=data)
-    if resp.status_code=200:     
+    if resp.status_code==200:     
       return "Done"
     else:
       return "Error"
