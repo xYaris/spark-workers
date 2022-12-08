@@ -14,7 +14,7 @@ def hello():
 
 @app.route("/add",methods=['GET','POST'])
 def add():
-  if request.method='GET':
+  if request.method=='GET':
     return "Use post to add" # replace with form template
   else:
     token=get_api_key()
