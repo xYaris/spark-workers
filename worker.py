@@ -22,9 +22,13 @@ def add():
     return "Use post to add" # replace with form template
   else:
     token=get_api_key()
+    return addWorker(token,3)
+
+
+def addworker(token, num):
     with open('payload.json') as p:
       tdata=json.load(p)
-    tdata['name']='slave3' #testing +str(request.form['num'])
+    tdata['name']='slave3'+str(num)
     data=json.dumps(tdata)
     url='https://www.googleapis.com/compute/v1/projects/spark-371009/zones/europe-west1-b/instances'
     headers={"Authorization": "Bearer "+token}
@@ -33,6 +37,8 @@ def add():
       return "Done"
     else:
       return "Error"
+      print(resp.content)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port='8080')
