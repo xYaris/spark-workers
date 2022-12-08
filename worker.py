@@ -20,7 +20,8 @@ def add():
     return "Use post to add" # replace with form template
   else:
     token=get_api_key()
-    tdata=json.load('payload.json')
+    with open('payload.json') as p:
+      tdata=json.load(p)
     tdata['name']='slave'+str(request.form['num'])
     data=json.dumps(tdata)
     url='https://www.googleapis.com/compute/v1/projects/spark-371009/zones/europe-west1-b/instances'
