@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 def get_api_key() -> str:
     secret = os.environ.get("COMPUTE_API_KEY")
-    print(os.environ.keys())
     if secret:
         return secret
     else:
@@ -29,7 +28,7 @@ def add():
     return "Use post to add" # replace with form template
   else:
     token=get_api_key()
-    ret = addWorker(token,3)
+    ret = addWorker(token,request.form['num'])
     return ret
 
 
