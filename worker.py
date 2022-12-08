@@ -43,8 +43,9 @@ def addWorker(token, num):
     if resp.status_code==200:     
       return "Done"
     else:
-      return "Error"
       print(resp.content)
+      return "Error"
+
 
 
 if __name__ == "__main__":
