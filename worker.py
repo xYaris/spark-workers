@@ -11,9 +11,9 @@ def get_api_key() -> str:
     if secret:
         return secret
     else:
-        import subprocess
-        call_str = "echo $COMPUTE_API_KEY"
-        return subprocess.check_output(call_str, shell=True, stderr=subprocess.STDOUT)
+        #local testing
+        with open('.key') as f:
+            return f.read()
       
 @app.route("/")
 def hello():
