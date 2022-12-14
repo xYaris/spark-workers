@@ -45,7 +45,7 @@ def addWorker(token, num):
       return "Done"
     else:
       print(resp.content)
-      return "Error"
+      return "Error\n"+resp.content
 
 
 
